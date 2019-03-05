@@ -1,4 +1,5 @@
 import {
+  ChangeDetectorRef,
   ComponentFactory,
   ComponentFactoryResolver,
   Directive,
@@ -63,6 +64,10 @@ export class DynamicDirective implements OnChanges, DoCheck, OnDestroy {
 
   private get _componentInst() {
     return this._compRef.instance;
+  }
+
+  private get _compCdr(): ChangeDetectorRef {
+    return this._compRef ? this._compRef.injector.get(ChangeDetectorRef) : null;
   }
 
   private get _componentInstChanged(): boolean {
@@ -146,6 +151,11 @@ export class DynamicDirective implements OnChanges, DoCheck, OnDestroy {
     Object
       .keys(inputs)
       .forEach(p => compInst[p] = inputs[p]);
+
+    // Mark component for check to re-render with new inputs
+    if (this._compCdr) {
+      this._compCdr.markForCheck();
+    }
 
     this.notifyOnInputChanges(this._lastInputChanges, isFirstChange);
   }
