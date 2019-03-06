@@ -1,5 +1,5 @@
 {
-  "name": "@algotec/ng-dynamic-component",
+  "name": "ng-dynamic-component",
   "version": "2.3.0-algotec.2",
   "description": "Dynamic components with full life-cycle support for inputs and outputs for Angular",
   "main": "bundles/ng-dynamic-component.umd.js",
