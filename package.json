@@ -1,5 +1,5 @@
 {
-  "name": "ng-dynamic-component",
+  "name": "@algotec/ng-dynamic-component",
   "version": "2.3.0-algotec.1",
   "description": "Dynamic components with full life-cycle support for inputs and outputs for Angular",
   "main": "dist/bundles/ng-dynamic-component.umd.js",
@@ -94,14 +94,13 @@
   "engines": {
     "node": ">=6.0.0"
   },
+  "publishConfig": {
+    "registry": "http://artifactory.algotec.co.il:8080/artifactory/api/npm/npm-virutal"
+  },
   "config": {
     "commitizen": {
       "path": "./node_modules/cz-conventional-changelog"
     }
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/gund/ng-dynamic-component.git"
   },
   "jest": {
     "preset": "jest-preset-angular",
